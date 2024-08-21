@@ -1,0 +1,52 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <title>Test de Personalidad</title>
+    <link rel="stylesheet" href="/css/styles.css">
+</head>
+<body>
+    <h1>Test de Personalidad</h1>
+    <form action="/submit" method="post">
+        <label for="nombreempleado">Nombre:</label>
+        <input type="text" id="nombreempleado" name="nombreempleado" required>
+
+        <label for="email">Email:</label>
+        <input type="email" id="email" name="email" required>
+
+        <label for="telefono">Teléfono:</label>
+        <input type="text" id="telefono" name="telefono" required>
+
+        <label for="descripcion">Descripción:</label>
+        <textarea id="descripcion" name="descripcion"></textarea>
+
+        <% preguntas.forEach(pregunta => { %>
+            <h3><%= pregunta.texto %></h3>
+            <div class="opciones">
+                <label class="opcion">
+                    <input type="radio" name="respuestas[<%= pregunta.id %>]" value="Estoy de acuerdo">
+                    <span class="valor">Estoy de acuerdo</span>
+                </label>
+                <label class="opcion">
+                    <input type="radio" name="respuestas[<%= pregunta.id %>]" value="En parte de acuerdo">
+                    <span class="valor">En parte de acuerdo</span>
+                </label>
+                <label class="opcion">
+                    <input type="radio" name="respuestas[<%= pregunta.id %>]" value="Neutral">
+                    <span class="valor">Neutral</span>
+                </label>
+                <label class="opcion">
+                    <input type="radio" name="respuestas[<%= pregunta.id %>]" value="En parte en desacuerdo">
+                    <span class="valor">En parte en desacuerdo</span>
+                </label>
+                <label class="opcion">
+                    <input type="radio" name="respuestas[<%= pregunta.id %>]" value="No estoy de acuerdo">
+                    <span class="valor">No estoy de acuerdo</span>
+                </label>
+            </div>
+        <% }); %>
+
+        <button type="submit">Enviar</button>
+    </form>
+</body>
+</html>

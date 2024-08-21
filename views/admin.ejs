@@ -1,0 +1,61 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <title>Admin - Test de Personalidad</title>
+    <link rel="stylesheet" href="/css/styles.css">
+</head>
+<body>
+    <h1>Panel de Administración</h1>
+    
+    <h2>Agregar Pregunta</h2>
+    <form action="/admin/preguntas" method="post">
+        <input type="hidden" name="accion" value="agregar">
+        <label for="texto">Texto de la Pregunta:</label>
+        <input type="text" id="texto" name="texto" required>
+        <button type="submit">Agregar Pregunta</button>
+    </form>
+
+    <h2>Eliminar Pregunta</h2>
+    <form action="/admin/preguntas" method="post">
+        <input type="hidden" name="accion" value="eliminar">
+        <label for="id">Seleccionar Pregunta para Eliminar:</label>
+        <select id="id" name="id" required>
+            <% preguntas.forEach(pregunta => { %>
+                <option value="<%= pregunta.id %>"><%= pregunta.texto %></option>
+            <% }); %>
+        </select>
+        <button type="submit">Eliminar Pregunta</button>
+    </form>
+
+    <h2>Respuestas Recibidas</h2>
+    <table>
+        <tr>
+            <th>Nombre</th>
+            <th>Email</th>
+            <th>Teléfono</th>
+            <th>Descripción</th>
+            <th>Respuestas</th>
+            <th>Fecha</th>
+        </tr>
+        <% respuestas.forEach(respuesta => { %>
+            <tr>
+                <td><%= respuesta.nombreempleado %></td>
+                <td><%= respuesta.email %></td>
+                <td><%= respuesta.telefono %></td>
+                <td><%= respuesta.descripcion %></td>
+                <td>
+                    <ul>
+                        <% for (let pregunta in respuesta.respuestas) { %>
+                            <li><strong><%= pregunta %>:</strong> <%= respuesta.respuestas[pregunta] %></li>
+                        <% } %>
+                    </ul>
+                </td>
+                <td><%= respuesta.created_at %></td>
+            </tr>
+        <% }); %>
+    </table>
+
+    <a href="/logout">Cerrar Sesión</a>
+</body>
+</html>
