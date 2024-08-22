@@ -1,3 +1,6 @@
+html{
+    scroll-behavior: smooth;
+}
 body {
     font-family: Arial, sans-serif;
     background-color: #d1d1d1;
@@ -6,15 +9,32 @@ body {
     padding: 0;
 }
 .header{
-    background-color: #007c98;
+    background: linear-gradient(to bottom, #007c98, #007c98 95%, rgba(0, 124, 152, 0) 100%);
     text-align: center;
     display:flex;
     align-items:center;
     justify-content:center;
     flex-flow: column wrap;
+    padding-bottom: 15px;
 }
-.header h1 {
-    color: #fff;
+.titleContainer{
+    display:flex;
+    align-items:center;
+    justify-content: center;
+    position: relative;
+    flex-flow: column wrap;
+    width:45%;
+}
+.titleContainer .title img{
+    width:50%;
+    object-fit: cover;
+}
+.titleContainer p{
+    margin:0;
+    padding: 0.4em;
+    font-size: 3.5em;
+    text-shadow: 1px 1px 2px #000;
+    color: #ebebeb;
 }
 .cardContainer{
     display:flex;
@@ -26,7 +46,7 @@ body {
 }
 .card{
     background-color: rgba(255,255,255,.55);
-    border: 1px solid #fff;
+    border: 1px solid #f3bc00;
     border-radius:1em;
     margin:10px 10px;
     display:flex;
@@ -34,7 +54,32 @@ body {
     justify-content: space-between;
     height: 95px;
     width:100%;
-    max-width:600px;
+    max-width:600px; 
+    transition: all .5s ease;
+    text-align: justify;
+}
+.card:hover{
+    transform: translateY(-3px);
+}
+.card p{
+    padding:4px;
+}
+.card p a{
+    color: #f3bc00;
+    text-shadow: 0 0 3px #000;
+    text-decoration: none;
+    font-weight: 500;
+}
+.card i{
+    height:100%;
+    width:auto;
+    padding: 3px;
+    display:flex;
+    align-items:center;
+    justify-content: center;
+    margin: 0 10px;
+    font-size: 2em;
+    color: #ebebeb;
 }
 @media (min-width:960px){
     .cardContainer{
@@ -46,11 +91,12 @@ body {
         width:30%;
     }
 }
-form {
-    max-width: 600px;
+.formContainer {
+    max-width: 1020px;
+    width:90%;
     margin: 20px auto;
     padding: 20px;
-    background-color: #fff;
+    background-color: #ebebeb;
     border: 1px solid #ddd;
     border-radius: 5px;
     box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
