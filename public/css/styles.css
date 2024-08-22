@@ -23,11 +23,12 @@ body {
     justify-content: center;
     position: relative;
     flex-flow: column wrap;
-    width:45%;
+    width:100%;
 }
 .titleContainer .title img{
-    width:50%;
+    width:30%;
     object-fit: cover;
+    max-width:750px;
 }
 .titleContainer p{
     margin:0;
@@ -63,6 +64,7 @@ body {
 }
 .card p{
     padding:4px;
+    width:100%;
 }
 .card p a{
     color: #f3bc00;
@@ -90,6 +92,15 @@ body {
     .card{
         width:30%;
     }
+}
+
+.identificacion{
+    display:flex;
+    align-items:center;
+    justify-content: space-around;
+}
+.identificacion input{
+    width:40%;
 }
 .formContainer {
     max-width: 1020px;
