@@ -9,66 +9,72 @@
 </head>
 <body>
     <div class="header">
-        <h1>Test de Personalidad</h1>
-        <p>Farmacias Sanchez Antoniolli</p>
+        <div class="titleContainer">
+            <div class="title">
+                <img src="/images/LogoBlanco.png" alt="Farmacias Sanchez Antoniolli">
+            </div>
+            <p class="subtitle">Test de personalidad</p>
+        </div>
         <div class="cardContainer">
-            <div class="card">
+            <div class="card" onclick="window.location='#identificacion';">
                 <i class="fas fa-book"></i>
                 <p>Descubre tu verdadera esencia y responde con honestidad para identificar tu tipo de personalidad.</p>
             </div>
-            <div class="card">
+            <div class="card" onclick="window.location='#preguntas';">
                 <i class="fas fa-rocket"></i>
                 <p>Explora cómo tu tipo de personalidad afecta diversos aspectos de tu vida diaria y profesional.</p>
             </div>
-            <div class="card">
+            <div class="card" onclick="window.open('https://www.farmaciassanchezantoniolli.com.ar', '_blank');">
                 <i class="fas fa-medkit"></i>
-                <p>Cuida tu salud y bienestar con los productos y servicios de <a href="https://www.farmaciassanchezantoniolli.com.ar/" target="_blank">Farmacia Sánchez Antoniolli</a>. ¡Visítanos hoy!</p>
+                <p>Cuida tu salud y bienestar con los productos y servicios de <a>Farmacias Sánchez Antoniolli</a>. ¡Visítanos hoy!</p>
             </div>
-
         </div>
-
-
     </div>
-    <form action="/submit" method="post">
-        <label for="nombreempleado">Nombre:</label>
-        <input type="text" id="nombreempleado" name="nombreempleado" required>
+    <div class="formContainer">
 
-        <label for="email">Email:</label>
-        <input type="email" id="email" name="email" required>
-
-        <label for="telefono">Teléfono:</label>
-        <input type="text" id="telefono" name="telefono" required>
-
-        <label for="descripcion">Descripción:</label>
-        <textarea id="descripcion" name="descripcion"></textarea>
-
-        <% preguntas.forEach(pregunta => { %>
-            <h3><%= pregunta.texto %></h3>
-            <div class="opciones">
-                <label class="opcion">
-                    <input type="radio" name="respuestas[<%= pregunta.id %>]" value="Estoy de acuerdo">
-                    <span class="valor">Estoy de acuerdo</span>
-                </label>
-                <label class="opcion">
-                    <input type="radio" name="respuestas[<%= pregunta.id %>]" value="En parte de acuerdo">
-                    <span class="valor">En parte de acuerdo</span>
-                </label>
-                <label class="opcion">
-                    <input type="radio" name="respuestas[<%= pregunta.id %>]" value="Neutral">
-                    <span class="valor">Neutral</span>
-                </label>
-                <label class="opcion">
-                    <input type="radio" name="respuestas[<%= pregunta.id %>]" value="En parte en desacuerdo">
-                    <span class="valor">En parte en desacuerdo</span>
-                </label>
-                <label class="opcion">
-                    <input type="radio" name="respuestas[<%= pregunta.id %>]" value="No estoy de acuerdo">
-                    <span class="valor">No estoy de acuerdo</span>
-                </label>
+        <form action="/submit" method="post">
+            <div class="identificacion" id="identificacion">
+                <input type="text" id="nombreempleado" name="nombreempleado" placeholder="Ingese su nombre" required>
+                <input type="email" id="email" name="email" placeholder="Ingrese su mail" required>
             </div>
-        <% }); %>
-
-        <button type="submit">Enviar</button>
-    </form>
+            <!-- <label for="nombreempleado">Nombre:</label> -->
+            <!-- <label for="email">Email:</label> -->
+            <div class="Contacto">
+                <input type="text" id="telefono" name="telefono" placeholder="Ingrese su teléfono" required>
+                <textarea id="descripcion" name="descripcion" placeholder="Ingrese una breve descripción"></textarea>
+            </div>
+            <!-- 
+            <label for="telefono">Teléfono:</label>
+            <label for="descripcion">Descripción:</label> -->
+    
+            <% preguntas.forEach(pregunta => { %>
+                <h3><%= pregunta.texto %></h3>
+                <div class="opciones">
+                    <label class="opcion">
+                        <input type="radio" name="respuestas[<%= pregunta.id %>]" value="Estoy de acuerdo">
+                        <span class="valor">Estoy de acuerdo</span>
+                    </label>
+                    <label class="opcion">
+                        <input type="radio" name="respuestas[<%= pregunta.id %>]" value="En parte de acuerdo">
+                        <span class="valor">En parte de acuerdo</span>
+                    </label>
+                    <label class="opcion">
+                        <input type="radio" name="respuestas[<%= pregunta.id %>]" value="Neutral">
+                        <span class="valor">Neutral</span>
+                    </label>
+                    <label class="opcion">
+                        <input type="radio" name="respuestas[<%= pregunta.id %>]" value="En parte en desacuerdo">
+                        <span class="valor">En parte en desacuerdo</span>
+                    </label>
+                    <label class="opcion">
+                        <input type="radio" name="respuestas[<%= pregunta.id %>]" value="No estoy de acuerdo">
+                        <span class="valor">No estoy de acuerdo</span>
+                    </label>
+                </div>
+            <% }); %>
+    
+            <button type="submit">Enviar</button>
+        </form>
+    </div>
 </body>
 </html>
