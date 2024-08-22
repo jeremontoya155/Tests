@@ -13,6 +13,9 @@ body {
     justify-content:center;
     flex-flow: column wrap;
 }
+.header h1 {
+    color: #fff;
+}
 .cardContainer{
     display:flex;
     align-items:center;
