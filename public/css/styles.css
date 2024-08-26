@@ -318,3 +318,17 @@ li {
 .custom-radio:hover {
     border-color: #f3bc00; /* Color del borde en hover */
 }
+
+.btnContinuar, .btnEnviar{
+    width:450px;
+    margin: 0 auto;
+}
+.btnContinuar{
+    background-color: #40b8d0;
+}
+.btnContinuar:hover{
+    background-color: #007c98;
+}
+.btnEnviar{
+    background-color: #f3bc00;
+}
