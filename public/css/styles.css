@@ -1,6 +1,36 @@
 html{
     scroll-behavior: smooth;
 }
+/* Estilo para navegadores Webkit (Chrome, Safari) */
+::-webkit-scrollbar {
+    width: 12px; /* Ancho del scrollbar */
+  }
+  
+  ::-webkit-scrollbar-track {
+    background: transparent; /* Fondo del track del scrollbar */
+  }
+  
+  ::-webkit-scrollbar-thumb {
+    background: linear-gradient(180deg, #40b8d0, transparent); /* Gradiente del pulgar del scrollbar */
+    border-radius: 10px; /* Borde redondeado del pulgar */
+    border: 3px solid transparent; /* Espacio alrededor del pulgar */
+    background-clip: padding-box; /* Para evitar que el color del pulgar invada los bordes */
+  }
+  
+  ::-webkit-scrollbar-thumb:hover {
+    background: linear-gradient(180deg, #40b8d0, #007c98); /* Cambia el color del pulgar al pasar el mouse */
+  }
+  
+  /* Estilo para navegadores Firefox */
+  body {
+    scrollbar-width: thin; /* Ancho del scrollbar */
+    scrollbar-color: violet transparent; /* Color del scrollbar (pulgar y track) */
+  }
+  
+  body:hover {
+    scrollbar-color: #a800ff transparent; /* Cambia el color del pulgar al pasar el mouse */
+  }
+  
 body {
     font-family: Arial, sans-serif;
     background-color: #d1d1d1;
@@ -17,6 +47,7 @@ body {
     flex-flow: column wrap;
     padding-bottom: 15px;
 }
+
 .titleContainer{
     display:flex;
     align-items:center;
@@ -53,7 +84,7 @@ body {
     display:flex;
     align-items:center;
     justify-content: space-between;
-    height: 95px;
+    height: 100%;
     width:100%;
     max-width:600px; 
     transition: all .5s ease;
@@ -90,8 +121,17 @@ body {
         margin: 0px 10px;
     }
     .card{
-        width:30%;
+        width:25%;
+        display:flex;
+        align-items:center;
+        justify-content: center;
+        flex-flow: column wrap;
+        padding: 20px;
     }
+    .header{
+        background: linear-gradient(to bottom, #007c98, #007c98 65%, rgba(0, 124, 152, 0) 95%);
+    }
+
 }
 
 .identificacion{

@@ -31,50 +31,74 @@
         </div>
     </div>
     <div class="formContainer">
-
         <form action="/submit" method="post">
+            
             <div class="identificacion" id="identificacion">
                 <input type="text" id="nombreempleado" name="nombreempleado" placeholder="Ingese su nombre" required>
-                <input type="email" id="email" name="email" placeholder="Ingrese su mail" required>
+                <input type="text" id="telefono" name="telefono" placeholder="Ingrese su teléfono" required>
             </div>
             <!-- <label for="nombreempleado">Nombre:</label> -->
             <!-- <label for="email">Email:</label> -->
             <div class="Contacto">
-                <input type="text" id="telefono" name="telefono" placeholder="Ingrese su teléfono" required>
+                <input type="email" id="email" name="email" placeholder="Ingrese su mail" required>
                 <textarea id="descripcion" name="descripcion" placeholder="Ingrese una breve descripción"></textarea>
             </div>
             <!-- 
             <label for="telefono">Teléfono:</label>
             <label for="descripcion">Descripción:</label> -->
-    
-            <% preguntas.forEach(pregunta => { %>
-                <h3><%= pregunta.texto %></h3>
-                <div class="opciones">
-                    <label class="opcion">
-                        <input type="radio" name="respuestas[<%= pregunta.id %>]" value="Estoy de acuerdo">
-                        <span class="valor">Estoy de acuerdo</span>
-                    </label>
-                    <label class="opcion">
-                        <input type="radio" name="respuestas[<%= pregunta.id %>]" value="En parte de acuerdo">
-                        <span class="valor">En parte de acuerdo</span>
-                    </label>
-                    <label class="opcion">
-                        <input type="radio" name="respuestas[<%= pregunta.id %>]" value="Neutral">
-                        <span class="valor">Neutral</span>
-                    </label>
-                    <label class="opcion">
-                        <input type="radio" name="respuestas[<%= pregunta.id %>]" value="En parte en desacuerdo">
-                        <span class="valor">En parte en desacuerdo</span>
-                    </label>
-                    <label class="opcion">
-                        <input type="radio" name="respuestas[<%= pregunta.id %>]" value="No estoy de acuerdo">
-                        <span class="valor">No estoy de acuerdo</span>
-                    </label>
+            <% preguntas.forEach((pregunta, index) => { %>
+                <div id="pregunta-<%= index %>">
+                    <h3><%= pregunta.texto %></h3>
+                    <div class="opciones">
+                        <label class="opcion">
+                            <input type="radio" name="respuestas[<%= pregunta.id %>]" value="Estoy de acuerdo">
+                            <span class="valor">Estoy de acuerdo</span>
+                        </label>
+                        <label class="opcion">
+                            <input type="radio" name="respuestas[<%= pregunta.id %>]" value="En parte de acuerdo">
+                            <span class="valor">En parte de acuerdo</span>
+                        </label>
+                        <label class="opcion">
+                            <input type="radio" name="respuestas[<%= pregunta.id %>]" value="Neutral">
+                            <span class="valor">Neutral</span>
+                        </label>
+                        <label class="opcion">
+                            <input type="radio" name="respuestas[<%= pregunta.id %>]" value="En parte en desacuerdo">
+                            <span class="valor">En parte en desacuerdo</span>
+                        </label>
+                        <label class="opcion">
+                            <input type="radio" name="respuestas[<%= pregunta.id %>]" value="No estoy de acuerdo">
+                            <span class="valor">No estoy de acuerdo</span>
+                        </label>
+                    </div>
                 </div>
             <% }); %>
+            
     
             <button type="submit">Enviar</button>
         </form>
     </div>
+    <script>
+        document.addEventListener('DOMContentLoaded', () => {
+            const preguntas = document.querySelectorAll('[id^="pregunta-"]');
+    
+            preguntas.forEach((pregunta, index) => {
+                const opciones = pregunta.querySelectorAll('.opcion input[type="radio"]');
+    
+                opciones.forEach(opcion => {
+                    opcion.addEventListener('change', () => {
+                        // Obtener el índice de la siguiente pregunta
+                        const nextPregunta = preguntas[index + 1];
+                        
+                        // Si existe una siguiente pregunta, desplazar hacia ella
+                        if (nextPregunta) {
+                            nextPregunta.scrollIntoView({ behavior: 'smooth' });
+                        }
+                    });
+                });
+            });
+        });
+    </script>
+    
 </body>
 </html>
