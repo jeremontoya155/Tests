@@ -279,6 +279,16 @@ li {
     width: 16px; /* Tamaño del círculo */
     height: 16px; /* Tamaño del círculo */
 }
+.custom-radio-4 {
+    width: 26px; /* Tamaño del círculo */
+    height: 26px; /* Tamaño del círculo */
+}
+.custom-radio-5 {
+    width: 34px; /* Tamaño del círculo */
+    height: 34px; /* Tamaño del círculo */
+}
+
+
 
 /* Estilo cuando el radio está seleccionado */
 .custom-radio::after {
@@ -291,6 +301,9 @@ li {
     transform: translate(-50%, -50%) scale(0); /* Oculto inicialmente */
     transition: transform 0.2s; /* Transición suave */
 }
+
+.custom-radio-5::after,
+.custom-radio-4::after,
 .custom-radio-2::after,
 .custom-radio-1::after {
     background-color: #007c98; /* Color cuando está seleccionado */
@@ -305,17 +318,30 @@ li {
 }
 
 /* Cambiar color del borde y fondo cuando está seleccionado */
-.opcion input[type="radio"]:checked + .custom-radio {
-    border-color: #40b8d0; /* Color del borde cuando está seleccionado */
-    background-color: #e6f0ff; /* Fondo más claro cuando está seleccionado */
-}
 .opcion input[type="radio"]:checked + .custom-radio-1 {
-    border-color: #007c98; /* Color del borde cuando está seleccionado */
-    background-color: #40b8d0; /* Fondo más claro cuando está seleccionado */
+    border-color: #40b8d0; 
+    background-color: #59b1c39f; 
+    box-shadow: 0 0 5px #59b1c3;
+}
+.opcion input[type="radio"]:checked + .custom-radio-2 {
+    border-color: #6dc2d7; 
+    background-color: #33a1b5; 
+    box-shadow: 0 0 5px #33a1b5;
 }
 .opcion input[type="radio"]:checked + .custom-radio-3 {
-    border-color: #40b8d0;
-    background-color: #cdcdcd; /* Fondo más claro cuando está seleccionado */
+    border-color: #e2e3e5; 
+    background-color: #ccccccd7; 
+    box-shadow: 0 0 5px #000;
+}
+.opcion input[type="radio"]:checked + .custom-radio-4 {
+    border-color: #c5a1d5; 
+    background-color: #a78bb9b1; 
+    box-shadow: 0 0 5px #a78bb9b1;
+}
+.opcion input[type="radio"]:checked + .custom-radio-5 {
+    border-color: #9b4d9c; 
+    background-color: #7f3d7d; 
+    box-shadow: 0 0 5px #7f3d7d;
 }
 
 /* Cambiar color del borde al pasar el ratón */
