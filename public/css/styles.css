@@ -1,6 +1,36 @@
 html{
     scroll-behavior: smooth;
 }
+/* Estilo para navegadores Webkit (Chrome, Safari) */
+::-webkit-scrollbar {
+    width: 12px; /* Ancho del scrollbar */
+  }
+  
+  ::-webkit-scrollbar-track {
+    background: transparent; /* Fondo del track del scrollbar */
+  }
+  
+  ::-webkit-scrollbar-thumb {
+    background: linear-gradient(180deg, #40b8d0, transparent); /* Gradiente del pulgar del scrollbar */
+    border-radius: 10px; /* Borde redondeado del pulgar */
+    border: 3px solid transparent; /* Espacio alrededor del pulgar */
+    background-clip: padding-box; /* Para evitar que el color del pulgar invada los bordes */
+  }
+  
+  ::-webkit-scrollbar-thumb:hover {
+    background: linear-gradient(180deg, #40b8d0, #007c98); /* Cambia el color del pulgar al pasar el mouse */
+  }
+  
+  /* Estilo para navegadores Firefox */
+  body {
+    scrollbar-width: thin; /* Ancho del scrollbar */
+    scrollbar-color: #40b8d0 transparent; /* Color del scrollbar (pulgar y track) */
+  }
+  
+  body:hover {
+    scrollbar-color: #007c98 transparent; /* Cambia el color del pulgar al pasar el mouse */
+  }
+  
 body {
     font-family: Arial, sans-serif;
     background-color: #d1d1d1;
@@ -17,6 +47,17 @@ body {
     flex-flow: column wrap;
     padding-bottom: 15px;
 }
+.pregunta.oculta {
+    display: none;
+}
+
+.pregunta.visible {
+    display: block;
+}
+.oculta {
+    display: none;
+}
+
 .titleContainer{
     display:flex;
     align-items:center;
@@ -53,7 +94,7 @@ body {
     display:flex;
     align-items:center;
     justify-content: space-between;
-    height: 95px;
+    height: 100%;
     width:100%;
     max-width:600px; 
     transition: all .5s ease;
@@ -90,8 +131,17 @@ body {
         margin: 0px 10px;
     }
     .card{
-        width:30%;
+        width:25%;
+        display:flex;
+        align-items:center;
+        justify-content: center;
+        flex-flow: column wrap;
+        padding: 20px;
     }
+    .header{
+        background: linear-gradient(to bottom, #007c98, #007c98 65%, rgba(0, 124, 152, 0) 95%);
+    }
+
 }
 
 .identificacion{
@@ -112,7 +162,11 @@ body {
     border-radius: 5px;
     box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
 }
-
+.titleQuestion{
+    margin: 2em auto;
+    width:80%;
+    text-align: center;
+}
 label {
     display: block;
     margin-bottom: 8px;
@@ -173,16 +227,112 @@ li {
 }
 
 .opciones {
-    margin-bottom: 20px;
+    padding: 3em 0;
+    margin-bottom:3em;
+    display:flex;
+    align-items:center;
+    justify-content: space-between;
+    flex-flow:row wrap;
 }
 
 .opcion {
     display: block;
     margin-bottom: 5px;
+    
 }
 
 .opcion .valor {
     font-weight: bold;
     margin-left: 10px;
     color: #333;
+}
+/* Ocultar el radio button original */
+.opcion input[type="radio"] {
+    display: none; /* Ocultar el radio button predeterminado */
+}
+
+/* Estilo común para todos los radios personalizados */
+.custom-radio {
+    display: inline-block;
+    border-radius: 50%;
+    border: 2px solid #ccc; /* Color del borde del círculo */
+    background-color: white; /* Color de fondo del círculo */
+    cursor: pointer; /* Cambiar cursor al pasar el ratón */
+    position: relative; /* Posición para el ::after */
+    transition: background-color 0.3s, border-color 0.3s; /* Transición suave */
+}
+
+/* Tamaño del círculo más grande */
+.custom-radio-1 {
+    width: 34px; /* Tamaño del círculo */
+    height: 34px; /* Tamaño del círculo */
+}
+
+/* Tamaño del círculo medio */
+.custom-radio-2 {
+    width: 26px; /* Tamaño del círculo */
+    height: 26px; /* Tamaño del círculo */
+}
+
+/* Tamaño del círculo más pequeño */
+.custom-radio-3 {
+    width: 16px; /* Tamaño del círculo */
+    height: 16px; /* Tamaño del círculo */
+}
+
+/* Estilo cuando el radio está seleccionado */
+.custom-radio::after {
+    content: '';
+    display: block;
+    border-radius: 50%;
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%) scale(0); /* Oculto inicialmente */
+    transition: transform 0.2s; /* Transición suave */
+}
+.custom-radio-2::after,
+.custom-radio-1::after {
+    background-color: #007c98; /* Color cuando está seleccionado */
+}
+.custom-radio-3::after {
+    background-color: #a4a4a4; /* Color cuando está seleccionado */
+}
+
+/* Mostrar el círculo interior cuando el radio está seleccionado */
+.opcion input[type="radio"]:checked + .custom-radio::after {
+    transform: translate(-50%, -50%) scale(1); /* Mostrar círculo interior */
+}
+
+/* Cambiar color del borde y fondo cuando está seleccionado */
+.opcion input[type="radio"]:checked + .custom-radio {
+    border-color: #40b8d0; /* Color del borde cuando está seleccionado */
+    background-color: #e6f0ff; /* Fondo más claro cuando está seleccionado */
+}
+.opcion input[type="radio"]:checked + .custom-radio-1 {
+    border-color: #007c98; /* Color del borde cuando está seleccionado */
+    background-color: #40b8d0; /* Fondo más claro cuando está seleccionado */
+}
+.opcion input[type="radio"]:checked + .custom-radio-3 {
+    border-color: #40b8d0;
+    background-color: #cdcdcd; /* Fondo más claro cuando está seleccionado */
+}
+
+/* Cambiar color del borde al pasar el ratón */
+.custom-radio:hover {
+    border-color: #f3bc00; /* Color del borde en hover */
+}
+
+.btnContinuar, .btnEnviar{
+    width:450px;
+    margin: 0 auto;
+}
+.btnContinuar{
+    background-color: #40b8d0;
+}
+.btnContinuar:hover{
+    background-color: #007c98;
+}
+.btnEnviar{
+    background-color: #f3bc00;
 }
