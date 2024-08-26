@@ -309,9 +309,13 @@ li {
     border-color: #40b8d0; /* Color del borde cuando está seleccionado */
     background-color: #e6f0ff; /* Fondo más claro cuando está seleccionado */
 }
+.opcion input[type="radio"]:checked + .custom-radio-1 {
+    border-color: #007c98; /* Color del borde cuando está seleccionado */
+    background-color: #40b8d0; /* Fondo más claro cuando está seleccionado */
+}
 .opcion input[type="radio"]:checked + .custom-radio-3 {
     border-color: #40b8d0;
-    background-color: #40b8d0a7; /* Fondo más claro cuando está seleccionado */
+    background-color: #cdcdcd; /* Fondo más claro cuando está seleccionado */
 }
 
 /* Cambiar color del borde al pasar el ratón */
