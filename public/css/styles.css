@@ -198,34 +198,6 @@ button:hover {
     background-color: #45a049;
 }
 
-table {
-    width: 100%;
-    border-collapse: collapse;
-    margin: 20px auto;
-}
-
-table, th, td {
-    border: 1px solid #ddd;
-}
-
-th, td {
-    padding: 10px;
-    text-align: left;
-}
-
-th {
-    background-color: #4CAF50;
-    color: white;
-}
-
-ul {
-    padding-left: 20px;
-}
-
-li {
-    margin-bottom: 5px;
-}
-
 .opciones {
     padding: 3em 0;
     margin-bottom:3em;
@@ -361,4 +333,105 @@ li {
 }
 .btnEnviar{
     background-color: #f3bc00;
+}
+.btnEnviar:hover{
+    background-color: #f39e00;
+}
+
+/* PANTALLA LOGIN */
+.bodyContainer{
+    width:100%;
+    height: 100vh;
+    background-color: #333;
+    display:flex;
+    align-items:center;
+    justify-content: center;
+    flex-flow:column wrap;
+}
+.containerLogin{
+    display:flex;
+    align-items:center;
+    flex-flow: column wrap;
+    justify-content:space-between;
+    border: 1px solid #59b1c3;    
+    border-radius: 1em;
+    padding:1em;
+    background-color: #252525;
+}
+.contenedorAuth{
+    display:flex;
+    width: 450px !important;
+    height: 300px;
+    align-items:center;
+    justify-content:space-evenly;
+    flex-flow:column wrap;
+    color: #ebebeb;
+    width:100%;
+}
+
+
+
+/* ESTILOS PÁGINA ADMINISTRADOR */
+
+.containerAdministrador{
+    width:90%;
+    margin: 0 auto;
+}
+.preguntaEliminar,
+.preguntaNueva{
+    display:flex;
+    align-items:center;
+    flex-flow: column wrap;
+}
+.preguntaEliminarSelect,
+.preguntaNuevaInput{
+    display:flex;
+    align-items:center;
+    justify-content:center;
+    flex-flow: row wrap;
+    width:100%;
+}
+.preguntaEliminar select,
+.preguntaNuevaInput input{
+    width: 70%;
+    margin:0;
+}
+.preguntaNuevaInput .btnEnviar,
+.preguntaEliminar .btnEnviar{
+    width:20%;
+}
+.respuestasRecibidas{
+    overflow-x: auto;
+}
+.respuestasRecibidas .respuestas ul{
+    max-height:300px;
+    width:750px;
+    overflow-y: auto;
+}
+.bannerAdmin{
+    display:flex;
+    align-items:center;
+    justify-content: space-between;
+    background-color: #59b1c3;
+    width:100%;
+    padding:1em;    
+}
+.bannerAdmin h1 {
+    color:#ebebeb;
+}
+.bannerAdmin h1,
+.bannerAdmin a{
+    margin: 0 40px;
+}
+.bannerAdmin a{
+    background-color: #ffafaf;
+    text-decoration: none;
+    color:#ebebeb;
+    padding: 1em;
+    border-radius:2em;
+    transition: all .5s ease;
+}
+.bannerAdmin a:hover{
+    background-color: #ff6c6c;
+
 }
