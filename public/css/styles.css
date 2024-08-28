@@ -236,28 +236,28 @@ button:hover {
 
 /* Tamaño del círculo más grande */
 .custom-radio-1 {
-    width: 34px; /* Tamaño del círculo */
-    height: 34px; /* Tamaño del círculo */
+    width: 54px; 
+    height: 54px; 
 }
 
 /* Tamaño del círculo medio */
 .custom-radio-2 {
-    width: 26px; /* Tamaño del círculo */
-    height: 26px; /* Tamaño del círculo */
+    width: 26px; 
+    height: 26px; 
 }
 
 /* Tamaño del círculo más pequeño */
 .custom-radio-3 {
-    width: 16px; /* Tamaño del círculo */
-    height: 16px; /* Tamaño del círculo */
+    width: 16px; 
+    height: 16px; 
 }
 .custom-radio-4 {
-    width: 26px; /* Tamaño del círculo */
-    height: 26px; /* Tamaño del círculo */
+    width: 26px; 
+    height: 26px; 
 }
 .custom-radio-5 {
-    width: 34px; /* Tamaño del círculo */
-    height: 34px; /* Tamaño del círculo */
+    width: 54px; 
+    height: 54px; 
 }
 
 
